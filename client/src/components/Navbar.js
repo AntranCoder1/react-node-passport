@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({ user }) => {
+
+    const logout = () => {
+        window.open("http://localhost:5000/auth/logout", "_self");
+    }
+
     return (
         <div className="navbar">
             <span className="logo">
@@ -13,13 +18,13 @@ const Navbar = ({ user }) => {
                 <ul className="list">
                     <li className="listItem">
                         <img 
-                            src="https://i.pinimg.com/564x/00/3a/9e/003a9e4dd4888c5feb6f05b5d4882921.jpg"
+                            src={user.photos[0].value}
                             className="avatar"
                             alt=""
                         />
                     </li>
-                    <li className="listItem">Thu Hường</li>
-                    <li className="listItem">
+                    <li className="listItem">{user.displayName}</li>
+                    <li className="listItem" onClick={logout}>
                         Logout
                     </li>
                 </ul>

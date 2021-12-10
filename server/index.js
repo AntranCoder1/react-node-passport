@@ -1,7 +1,9 @@
 const cookieSession = require("cookie-session");
 const express = require("express");
+const passportSetup = require("./passport");
 const passport = require("passport");
 const cors = require("cors");
+const authRouter = require("./routes/auth.routes");
 const app = express();
 
 app.use(cookieSession(
@@ -21,9 +23,7 @@ app.use(cors({
     credentials: true
 }))
 
-app.get("/", (req, res) => {
-    res.send("hello");
-});
+app.use("/auth", authRouter);
 
 const PORT = 5000;
 app.listen(PORT, () => {
