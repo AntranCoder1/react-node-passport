@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { posts } from '../data';
 
 const Post = () => {
     return (
