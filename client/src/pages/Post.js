@@ -1,17 +1,24 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { posts } from '../data';
 
 const Post = () => {
+
+    const location = useLocation();
+    const postId = location.pathname.split("/")[2];
+
+    const post = posts.find((item) => item.id.toString() === postId);
+
     return (
         <div className="post">
             <img 
-                src="https://i.pinimg.com/564x/32/09/9f/32099f942c743a854163d7ad489a7d30.jpg"
+                src={post.img}
                 alt=""
                 className="postImg"
             />
-            <h1 className="postTitle">Test</h1>
-            <p className="postDesc">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
-            <p className="postLongDesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea?</p>
+            <h1 className="postTitle">{post.title}t</h1>
+            <p className="postDesc">{post.desc}</p>
+            <p className="postLongDesc">{post.longDesc}</p>
         </div>
     )
 }
