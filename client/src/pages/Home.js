@@ -1,10 +1,13 @@
-import React from 'react'
-import Card from '../components/Card'
+import React from 'react';
+import Card from '../components/Card';
+import { posts } from '../data';
 
 const Home = () => {
     return (
         <div className="home">
-            <Card />
+            { posts.map((item) => (
+                <Card key={item.id} posts={item} />
+            )) }
         </div>
     )
 }

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Card = () => {
+const Card = ({ posts }) => {
     return (
         <div className="card">
-            <span className="title">Test</span>
+            <span className="title">{posts.title}</span>
             <img 
-                src="https://i.pinimg.com/564x/32/09/9f/32099f942c743a854163d7ad489a7d30.jpg" 
+                src={posts.img} 
                 alt="" 
                 className="img" 
             />
-            <p className="desc">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+            <p className="desc">{posts.desc}</p>
             <button className="cardButton">Read More</button>
         </div>
     )
