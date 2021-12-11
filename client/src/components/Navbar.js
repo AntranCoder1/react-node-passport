@@ -23,7 +23,7 @@ const Navbar = ({ user }) => {
                             alt=""
                         />
                     </li>
-                    <li className="listItem">{user.displayName}</li>
+                    <li className="listItem">{user.displayName || user.username}</li>
                     <li className="listItem" onClick={logout}>
                         Logout
                     </li>
